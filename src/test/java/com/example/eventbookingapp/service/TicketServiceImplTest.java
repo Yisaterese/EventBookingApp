@@ -53,7 +53,7 @@ public class TicketServiceImplTest {
         CreateEventResponse createEventResponse = organiserService.createEvent(createEventRequest);
         assertNotNull(createEventResponse);
         AddTicketRequest addTicketRequest = new AddTicketRequest();
-        addTicketRequest.setType(VVIP);
+        addTicketRequest.setCategory(VVIP);
         addTicketRequest.setPurchaserMail("purchaser@gmail.com");
         addTicketRequest.setAmount(BigDecimal.valueOf(3000));
         addTicketRequest.setEventId(createEventResponse.getEventId());

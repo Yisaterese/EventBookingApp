@@ -3,6 +3,7 @@ package com.example.eventbookingapp.data.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
+
 public class Guest {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,11 +23,10 @@ public class Guest {
     private String email;
     private int numberOfTickets;
     @Enumerated(EnumType.STRING)
-    private ROLE roleAs;
+    private ROLE roleAs = ROLE.ATTENDEE;
     @ManyToOne
     private Event event;
-    @OneToMany(fetch = FetchType.EAGER,cascade= CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade= CascadeType.ALL,orphanRemoval = true)
     private List<Ticket> tickets = new ArrayList<>();
-    private boolean reservationStatus;
 
 }

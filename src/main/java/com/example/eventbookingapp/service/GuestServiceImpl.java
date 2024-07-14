@@ -5,6 +5,7 @@ import com.example.eventbookingapp.data.repository.GuestRepository;
 import com.example.eventbookingapp.dto.request.RegisterGuestRequest;
 import com.example.eventbookingapp.dto.response.RegisterGuestResponse;
 import com.example.eventbookingapp.exception.InvitedGuestException;
+import com.example.eventbookingapp.exception.NoGuestFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,18 @@ public class GuestServiceImpl implements GuestService{
         return response;
     }
 
+    @Override
+    public Guest getGuest(Long id){
+        return guestRepository.findById(id)
+                .orElseThrow(()->new NoGuestFoundException("No guest found"));
+    }
+
+    @Override
+    public Guest getGuestByEmail(String username) {
+        return guestRepository.findByEmail(username);
+    }
+
     private void validateGuest(RegisterGuestRequest request) {
-        if(guestRepository.existsByEmail(request.getEmail()))throw new InvitedGuestException("Guest already registered");
+        if(guestRepository.existsByEmail(request.getEmail()))throw new InvitedGuestException("Email already taken");
     }
 }

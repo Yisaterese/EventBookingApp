@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 public class MakeReservationRequest {
     private Long eventId;
-    private CATEGORY type;
+    private CATEGORY ticketType;
     private Long guestId;
 }

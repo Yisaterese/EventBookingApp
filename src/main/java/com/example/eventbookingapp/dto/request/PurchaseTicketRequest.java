@@ -7,12 +7,13 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Setter
+import static com.example.eventbookingapp.data.model.TicketStatus.SOLD;
+
 @Getter
-public class AddTicketRequest {
+@Setter
+public class PurchaseTicketRequest {
     private Long eventId;
     private CATEGORY category;
     private String purchaserMail;
     private BigDecimal amount;
-    private BigDecimal discount;
 }

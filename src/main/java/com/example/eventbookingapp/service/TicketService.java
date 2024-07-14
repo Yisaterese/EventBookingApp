@@ -1,5 +1,6 @@
 package com.example.eventbookingapp.service;
 
+import com.example.eventbookingapp.data.model.CATEGORY;
 import com.example.eventbookingapp.data.model.Ticket;
 import com.example.eventbookingapp.dto.request.AddTicketRequest;
 import com.example.eventbookingapp.dto.response.AddTicketResponse;
@@ -15,5 +16,8 @@ public interface TicketService {
 
     List<Ticket> viewAllTicketsForAnEvent(Long eventId);
 
-    Ticket getTicketById(Long eventId, Long ticketId);
+
+    Ticket getTicketById(Long ticketId);
+
+    Ticket getTicketByCategory(CATEGORY category);
 }

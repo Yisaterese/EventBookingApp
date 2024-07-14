@@ -58,9 +58,10 @@ public class OrganiserServiceImpl implements OrganiserService {
         newGuest.setRoleAs(PARTICIPANT);
         newGuest = guestRepository.save(newGuest);
         event.getGuests().add(newGuest);
+        eventRepository.save(event);
         CreateGuestResponse response = modelMapper.map(newGuest, CreateGuestResponse.class);
-        response.setGuestId(newGuest.getGuestId());
         response.setMessage("guest added successfully");
+        System.out.println(response);
         return response;
     }
 
@@ -81,12 +82,11 @@ public class OrganiserServiceImpl implements OrganiserService {
             organiser.getEvents().add(newEvent);
             organiserRepository.save(organiser);
             CreateEventResponse response = modelMapper.map(newEvent, CreateEventResponse.class);
-            response.setMessage("event created successfully");
+            response.setMessage("Event created successfully");
             return response;
     }
 
     @Override
-
     public Organiser getOrganiserById(Long id) {
          return organiserRepository
                  .findById(id)
