@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 @Setter
 @Getter
 public class RegisterOrganiserRequest {
-    private String userName;
     private String password;
     private String email;
 }

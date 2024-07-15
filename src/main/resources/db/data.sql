@@ -12,6 +12,12 @@ INSERT INTO ticket(id, amount, category,ticket_status, ticket_number) VALUES
 (101, 25000.00, 'VIP','AVAILABLE', '234435676'),
 (102, 25000.00, 'REGULAR','AVAILABLE', '234435676');
 
+INSERT INTO organiser(organiser_id,email,password) VALUES
+('400','organiser1@gmail.com','#123abcIsSecure'),
+('401','organiser2@gmail.com','#123abcIsSecure'),
+('402','organiser3@gmail.com','#123abcIsSecure');
+
+
 INSERT INTO guest(guest_id, user_name, email, number_of_tickets) VALUES
 (300, 'Johnson', 'Johnson@gmail.com', 1),
 (301, 'Johnson', 'Johnson1@gmail.com', 1),

@@ -26,7 +26,6 @@ public class OrganiserServiceImplTest {
         RegisterOrganiserRequest request = new RegisterOrganiserRequest();
         request.setEmail("teresejoseph@gmail.com");
         request.setPassword("#Password123");
-        request.setUserName("terese");
         RegisterOrganiserResponse response = organiserService.registerOrganiser(request);
         assertNotNull(response);
         assertEquals("Registered successfully", response.getMessage());
@@ -57,7 +56,6 @@ public class OrganiserServiceImplTest {
         RegisterOrganiserRequest request = new RegisterOrganiserRequest();
         request.setEmail("terese@gmail.com");
         request.setPassword("#Password123");
-        request.setUserName("terese");
         return request;
     }
 
